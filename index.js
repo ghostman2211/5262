@@ -1,28 +1,32 @@
-const express = require('express')
-const userRouter = require('./routes/user.routes')
-const objectRouter = require('./routes/object.routes')
-const publicationsRouter = require('./routes/publications.routes')
+import {AppRegistry} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
 
-const bodyParser = require('body-parser');
-
-const PORT = process.env.PORT || 8080
-
-const app = express()
-
-app.use(bodyParser.json({limit: '500mb'}))
-app.use('/api',userRouter)
-app.use('/api',objectRouter)
-app.use('/api',publicationsRouter)
+AppRegistry.registerComponent(appName, () => App);
 
 
-var admin = require("firebase-admin");
-
-var serviceAccount = require("./vuzappcursovaya-firebase-adminsdk-e8ymi-717a6727ea.json");
-
-admin.initializeApp({credential: admin.credential.cert(serviceAccount)});
+// import { registerRootComponent } from 'expo';
+// import { Navigation } from "react-native-navigation";
+// import messaging from '@react-native-firebase/messaging'
 
 
+// import App from './App';
+// //registerRootComponent(App);
 
-app.listen(PORT, () => console.log(`Сервер запущен с портом: ${PORT}`))
+// Navigation.registerComponent('com.company.vuzappcursovaya', () => App);
 
-
+// Navigation.events().registerAppLaunchedListener(() => {
+//    Navigation.setRoot({
+//      root: {
+//        stack: {
+//          children: [
+//            {
+//              component: {
+//                name: 'com.company.vuzappcursovaya'
+//              }
+//            }
+//          ]
+//        }
+//      }
+//   });
+// });

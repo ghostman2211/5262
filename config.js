@@ -1,7 +1,6 @@
-const sqlite = require("sqlite3").verbose();
-const db = new sqlite.Database("./db/db.db", sqlite.OPEN_READWRITE,(err) => {
-    if(err) return console.error(err);
-})
+export const ip_address =  "http://88.218.60.146:8080/api"
 
 
-module.exports = db
+//global paramenters
+
+
