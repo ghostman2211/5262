@@ -5,7 +5,8 @@ const db = require('../config')
 class UserController{
 
     async createUser(req,res){
-    //30.05.24   
+    //30.05.24
+        //30.05
         const { nickname, login, pass } = req.body
         const sql = (
             `insert into users (nickname, login, pass, token, role) values (?, ?, ?,"",1);`
